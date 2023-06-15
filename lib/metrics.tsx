@@ -1,10 +1,10 @@
 import 'server-only';
 
-import { queryBuilder } from './planetscale';
+import { queryBuilder } from 'lib/planetscale';
 import { cache } from 'react';
 
 export const getBlogViews = cache(async () => {
-  
+
   const data = await queryBuilder
     .selectFrom('views')
     .select(['count'])

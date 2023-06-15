@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { useState, useTransition } from 'react';
+import { useState, useTransition } from 'react';
 
 export default function Form() {
   const router = useRouter();

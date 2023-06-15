@@ -2,17 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { allBlogs } from 'contentlayer/generated';
 import ViewCounter from './view-counter';
-import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Gallery',
-  description: 'View My Artwork Through Different Styles.',
+  description: 'See different haircuts and styles.',
 };
 
 export default async function BlogPage() {
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif mb-5">Gallery</h1>
+      <h1 className="font-bold text-3xl font-serif mb-5">Blog</h1>
       {allBlogs
         .sort((a, b) => {
           if (new Date(a.publishedAt) > new Date(b.publishedAt)) {

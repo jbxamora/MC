@@ -10,6 +10,15 @@ const computedFields = {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath,
   },
+  tweetIds: {
+    type: 'array',
+    resolve: (doc) => {
+      const tweetMatches = doc.body.raw.match(
+        /<StaticTweet\sid="[0-9]+"\s\/>/g
+      );
+      return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
+    },
+  },
   structuredData: {
     type: 'object',
     resolve: (doc) => ({
@@ -19,9 +28,13 @@ const computedFields = {
       datePublished: doc.publishedAt,
       dateModified: doc.publishedAt,
       description: doc.summary,
+      image: doc.image
+        ? `https://localhost:3000/${doc.image}`
+        : `https://localhost:3000/api/og?title=${doc.title}`,
+      url: `https://localhost:3000/blog/${doc._raw.flattenedPath}`,
       author: {
         '@type': 'Person',
-        name: 'Jenaly',
+        name: 'Mark Clemena',
       },
     }),
   },

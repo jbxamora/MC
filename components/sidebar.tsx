@@ -4,20 +4,25 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { LayoutGroup, motion } from 'framer-motion';
-import React from 'react';
 
 const navItems = {
   '/': {
     name: 'Home',
   },
+  '/about': {
+    name: 'About',
+  },
   '/gallery': {
     name: 'Gallery',
+  },
+  '/guestbook': {
+    name: 'Guestbook',
   },
 };
 
 function Logo() {
   return (
-    <Link aria-label="LyfeStyle Ink" href="/">
+    <Link aria-label="Mark Clemena" href="/">
       <motion.svg
         className="text-black dark:text-white h-[25px] md:h-[37px]"
         width="25"
@@ -62,8 +67,8 @@ function Logo() {
 
 export default function Navbar() {
   let pathname = usePathname() || '/';
-  if (pathname.includes('/blog/')) {
-    pathname = '/blog';
+  if (pathname.includes('/gallery/')) {
+    pathname = '/gallery';
   }
 
   return (

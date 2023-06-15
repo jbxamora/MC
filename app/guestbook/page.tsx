@@ -4,7 +4,6 @@ import { SignIn, SignOut } from './actions';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 import Form from './form';
-import React from 'react';
 
 async function getGuestbook() {
   const data = await queryBuilder

@@ -1,9 +1,9 @@
 import './global.css';
 import clsx from 'clsx';
+import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Sidebar from '../components/sidebar';
 import { Analytics } from '@vercel/analytics/react';
-import React from 'react';
 
 const kaisei = localFont({
   src: '../public/fonts/kaisei-tokumin-latin-700-normal.woff2',
@@ -12,6 +12,50 @@ const kaisei = localFont({
   display: 'swap',
 });
 
+export const metadata: Metadata = {
+  title: {
+    default: 'Mark Clemena',
+    template: '%s | Mark Clemena',
+  },
+  description: 'Private Barber || Bay Area',
+  openGraph: {
+    title: 'Mark Clemena',
+    description: 'Private Barber || Bay Area',
+    url: 'https://localhost:3000/',
+    siteName: 'Mark Clemena',
+    images: [
+      {
+        url: 'https://localhost/og.jpg',
+        width: 1920,
+        height: 1080,
+      },
+    ],
+    locale: 'en-US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  twitter: {
+    title: 'Mark Clemena',
+    card: 'summary_large_image',
+  },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+  verification: {
+    google: 'eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw',
+    yandex: '14d2e73487fa6c71',
+  },
+};
 
 export default function RootLayout({
   children,

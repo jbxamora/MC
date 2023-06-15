@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { useEffect } from 'react';
 import useSWR from 'swr';
 
@@ -41,7 +40,7 @@ export default function ViewCounter({
 
   return (
     <p className="font-mono text-sm text-neutral-500 tracking-tighter">
-      {data ? `${views.toLocaleString()} views` : ''}
+      {data ? `${views.toLocaleString()} views` : '​'}
     </p>
   );
 }
